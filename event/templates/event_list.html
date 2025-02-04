@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Event List {% endblock %}
+{% block content %}
+<h1>List of events</h1>
+<ul>
+    {% for event in available_events %}
+    <li>
+    <strong>{{ event.title }}</strong></a><br>
+
+        Duration: {{ event.duration }} weeks 
+        
+    </li>
+    {% empty %}
+    <li>No available events.</li>  <!-- Optional: Message if no courses are available -->
+    {% endfor %}
+</ul>
+{% endblock %}

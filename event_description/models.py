@@ -21,3 +21,5 @@ class Content(models.Model):
     )
     text = models.TextField(help_text='Content text')
     document = models.FileField(upload_to='documents/', help_text='Content document')   
+
+    
