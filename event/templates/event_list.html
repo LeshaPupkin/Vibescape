@@ -2,16 +2,16 @@
 {% load static %}
 {% block title %} Event List {% endblock %}
 {% block content %}
-<h1>List of events</h1>
+<h1>Information</h1>
 <ul>
-    {% for event in available_events %}
-    <li>
-    <strong>{{ event.title }}</strong></a><br>
+        {% for event in available_events %}
+        <li>
+    <a href="{% url 'event_detail' event.pk %}"><strong>{{ event.title }}</strong><br></a>
 
-        Duration: {{ event.duration }} weeks 
-        
-    </li>
-    {% empty %}
+            Duration: {{ event.duration }} weeks 
+            
+        </li>
+        {% empty %}
     <li>No available events.</li>  <!-- Optional: Message if no courses are available -->
     {% endfor %}
 </ul>

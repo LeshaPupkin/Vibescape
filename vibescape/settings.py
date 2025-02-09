@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'event_description',
     'user_event',
     'event',
+    'feedback',
 ]
 
 MIDDLEWARE = [

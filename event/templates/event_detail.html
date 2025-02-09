@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ event.title }}</h1>
+<p>{{ event.description }}</p>
+<p><strong>Date:</strong> {{ event.date }}</p>
+
+<h2>Comments</h2>
+<ul>
+    
+    {% for comment in comments %}
+        <li>
+            <strong>{{ comment.user.username }}</strong> ({{ comment.created_at|date:"F d, Y H:i" }}): <br>
+            {{ comment.text }}
+        </li>
+    {% empty %}
+        <li>No comments yet. Be the first to comment!</li>
+    {% endfor %}
+</ul>
+
+<h2>Add a Comment</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Post Comment</button>
+</form>
+{% endblock %}

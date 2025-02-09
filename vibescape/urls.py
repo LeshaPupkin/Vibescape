@@ -17,8 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from user.views import login_view, logout_view,register_view
-from event.views import event_list
+from event.views import event_list, event_detail
 from .views import index
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index,name='index'),
@@ -26,6 +29,9 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('registration/', register_view, name='registration'),
     path('event_list/', event_list, name='event_list'),
+    path('event_list/<int:pk>/', event_detail, name='event_detail'),
+    
+    # path('submit_feedback/', submit_feedback, name='submit_feedback'),
 
 
 ]
